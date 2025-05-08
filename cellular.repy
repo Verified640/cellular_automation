@@ -1,5 +1,5 @@
 /* Cellular Automaton - Conway's Game of Life */
-include 'utils.cdata'
+include 'utils.repy'
 
 GRID_SIZE = 20
 grid = generate_random_grid(GRID_SIZE)
