@@ -1,0 +1,20 @@
+def generate_random_grid(size) {
+    import numpy as np
+    return np.random.choice([0, 1], size*size, p=[0.7, 0.3]).reshape(size, size)
+}
+
+def count_neighbors(grid, x, y) {
+    return np.sum(grid[max(0, x-1):min(GRID_SIZE, x+2), max(0, y-1):min(GRID_SIZE, y+2)]) - grid[x, y]
+}
+
+def run_simulation(grid) {
+    import matplotlib.pyplot as plt
+    plt.figure(figsize=(5,5))
+    for _ in range(50) {
+        plt.imshow(grid, cmap="binary")
+        plt.xticks([]), plt.yticks([])
+        plt.pause(0.1)
+        grid = update(grid)
+    }
+    plt.show()
+}
